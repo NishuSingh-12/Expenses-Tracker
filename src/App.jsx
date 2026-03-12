@@ -1,18 +1,20 @@
-
-import './App.css'
-import ExpenseForm from './components/ExpenseForm'
-import ExpenseTable from './components/ExpenseTable'
+import { useState } from "react";
+import "./App.css";
+import ExpenseForm from "./components/ExpenseForm";
+import ExpenseTable from "./components/ExpenseTable";
+import expenseData from "./components/expenseData";
 
 function App() {
+  const [expenses, setExpenses] = useState(expenseData);
   return (
     <main>
       <h1>Track Your Expense</h1>
-      <div class="expense-tracker">
-      <ExpenseForm/>
-       <ExpenseTable/>
+      <div className="expense-tracker">
+        <ExpenseForm />
+        <ExpenseTable expenses={expenses} />
       </div>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

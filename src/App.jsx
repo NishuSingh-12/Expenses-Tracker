@@ -10,10 +10,6 @@ function App() {
       <div class="expense-tracker">
       <ExpenseForm/>
        <ExpenseTable/>
-        <div class="context-menu">
-            <div>Edit</div>
-            <div>Delete</div>
-        </div>
       </div>
     </main>
   )

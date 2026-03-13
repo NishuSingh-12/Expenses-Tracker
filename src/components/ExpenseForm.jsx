@@ -16,7 +16,13 @@ function ExpenseForm({ setExpenses }) {
       amount: "",
     });
   }
-
+  const handeChange = (e) => {
+    const { name, value } = e.target;
+    setExpense((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
   return (
     <form className="expense-form" onSubmit={handleSubmit}>
       <div className="input-container">
@@ -25,9 +31,7 @@ function ExpenseForm({ setExpenses }) {
           id="title"
           name="title"
           value={expense.title}
-          onChange={(e) =>
-            setExpense((prev) => ({ ...prev, title: e.target.value }))
-          }
+          onChange={handeChange}
         />
       </div>
       <div className="input-container">
@@ -36,9 +40,7 @@ function ExpenseForm({ setExpenses }) {
           id="category"
           name="category"
           value={expense.category}
-          onChange={(e) =>
-            setExpense((prev) => ({ ...prev, category: e.target.value }))
-          }
+          onChange={handeChange}
         >
           <option hidden>Select category</option>
           <option value="Grocery">Grocery</option>
@@ -54,9 +56,7 @@ function ExpenseForm({ setExpenses }) {
           id="amount"
           name="amount"
           value={expense.amount}
-          onChange={(e) =>
-            setExpense((prev) => ({ ...prev, amount: e.target.value }))
-          }
+          onChange={handeChange}
         />
       </div>
       <button className="add-btn">Add</button>

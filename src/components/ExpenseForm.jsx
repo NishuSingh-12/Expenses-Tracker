@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Input from "./Input";
+import Select from "./Select";
 function ExpenseForm({ setExpenses }) {
   const [expense, setExpense] = useState({
     title: "",
@@ -11,13 +12,13 @@ function ExpenseForm({ setExpenses }) {
   const validation = (formData) => {
     const errorsData = {};
     if (!formData.title) {
-      errorsData.title = "Title is required";
+      errorsData.title = "Title is required.";
     }
     if (!formData.category) {
-      errorsData.category = "Category is required";
+      errorsData.category = "Please select a category.";
     }
     if (!formData.amount) {
-      errorsData.amount = "Amount is required";
+      errorsData.amount = "Please enter an Amount.";
     }
     setErrors(errorsData);
     return errorsData;
@@ -52,23 +53,16 @@ function ExpenseForm({ setExpenses }) {
         onchange={handeChange}
         error={errors.title}
       />
-      <div className="input-container">
-        <label htmlFor="category">Category</label>
-        <select
-          id="category"
-          name="category"
-          value={expense.category}
-          onChange={handeChange}
-        >
-          <option hidden>Select category</option>
-          <option value="Grocery">Grocery</option>
-          <option value="Clothes">Clothes</option>
-          <option value="Bills">Bills</option>
-          <option value="Education">Education</option>
-          <option value="Medicine">Medicine</option>
-        </select>
-        <p className="error">{errors.category}</p>
-      </div>
+      <Select
+        label="Category"
+        id="category"
+        name="category"
+        value={expense.category}
+        onChange={handeChange}
+        firstValue="Select category"
+        options={["Grocery", "Clothes", "Bills", "Education", "Medicine"]}
+        error={errors.category}
+      />
       <Input
         label="Amount"
         id="amount"

@@ -6,9 +6,27 @@ function ExpenseForm({ setExpenses }) {
     category: "",
     amount: "",
   });
+  const [errors, setErrors] = useState({});
+
+  const validation = (formData) => {
+    const errorsData = {};
+    if (!formData.title) {
+      errorsData.title = "Title is required";
+    }
+    if (!formData.category) {
+      errorsData.category = "Category is required";
+    }
+    if (!formData.amount) {
+      errorsData.amount = "Amount is required";
+    }
+    setErrors(errorsData);
+    return errorsData;
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
+    const validateResult = validation(expense);
+    if (Object.keys(validateResult).length) return;
     setExpenses((prev) => [...prev, { ...expense, id: crypto.randomUUID() }]);
     setExpense({
       title: "",

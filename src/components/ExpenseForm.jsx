@@ -1,16 +1,20 @@
 import { useState } from "react";
 
 function ExpenseForm({ setExpenses }) {
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [amount, setAmount] = useState("");
+  const [expense, setExpense] = useState({
+    title: "",
+    category: "",
+    amount: "",
+  });
+
   function handleSubmit(e) {
     e.preventDefault();
-    const expense = { title, category, amount, id: crypto.randomUUID() };
-    setExpenses((prevState) => [...prevState, expense]);
-    setTitle("");
-    setCategory("");
-    setAmount("");
+    setExpenses((prev) => [...prev, { ...expense, id: crypto.randomUUID() }]);
+    setExpense({
+      title: "",
+      category: "",
+      amount: "",
+    });
   }
 
   return (
@@ -20,8 +24,10 @@ function ExpenseForm({ setExpenses }) {
         <input
           id="title"
           name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={expense.title}
+          onChange={(e) =>
+            setExpense((prev) => ({ ...prev, title: e.target.value }))
+          }
         />
       </div>
       <div className="input-container">
@@ -29,8 +35,10 @@ function ExpenseForm({ setExpenses }) {
         <select
           id="category"
           name="category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={expense.category}
+          onChange={(e) =>
+            setExpense((prev) => ({ ...prev, category: e.target.value }))
+          }
         >
           <option hidden>Select category</option>
           <option value="Grocery">Grocery</option>
@@ -45,8 +53,10 @@ function ExpenseForm({ setExpenses }) {
         <input
           id="amount"
           name="amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
+          value={expense.amount}
+          onChange={(e) =>
+            setExpense((prev) => ({ ...prev, amount: e.target.value }))
+          }
         />
       </div>
       <button className="add-btn">Add</button>

@@ -24,15 +24,18 @@ function ExpenseForm({ setExpenses }) {
   const validation = (formData) => {
     const errorsData = {};
     Object.entries(formData).forEach(([key, value]) => {
-      validationConfig[key].forEach((rule) => {
+      validationConfig[key].some((rule) => {
         if (rule.required && !value) {
           errorsData[key] = rule.message;
+          return true;
         }
         if (rule.minLength && value.length < 3) {
           errorsData[key] = rule.message;
+          return true;
         }
         if (rule.typeof && !Number(value)) {
           errorsData[key] = rule.message;
+          return true;
         }
       });
     });

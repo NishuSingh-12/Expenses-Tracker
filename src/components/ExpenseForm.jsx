@@ -59,7 +59,7 @@ function ExpenseForm({ setExpenses }) {
         name="category"
         value={expense.category}
         onChange={handeChange}
-        firstValue="Select category"
+        defaultOption="Select category"
         options={["Grocery", "Clothes", "Bills", "Education", "Medicine"]}
         error={errors.category}
       />

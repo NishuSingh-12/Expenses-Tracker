@@ -5,14 +5,18 @@ function Select({
   value,
   onChange,
   error,
-  firstValue,
+  defaultOption,
   options,
 }) {
   return (
     <div className="input-container">
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <select id={id} name={name} value={value} onChange={onChange}>
-        <option hidden>{firstValue}</option>
+        {defaultOption && (
+          <option value="" hidden>
+            {defaultOption}
+          </option>
+        )}
         {options.map((option, i) => (
           <option key={i} value={option}>
             {option}

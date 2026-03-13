@@ -9,17 +9,34 @@ function ExpenseForm({ setExpenses }) {
   });
   const [errors, setErrors] = useState({});
 
+  const validationConfig = {
+    title: [
+      { required: true, message: "Please enter title." },
+      { minLength: 3, message: "Title should be at least 5 characters long" },
+    ],
+    category: [{ required: true, message: "Please select a category." }],
+    amount: [
+      { required: true, message: "Please enter an amount." },
+      { typeof: Number, message: "Only numbers allow." },
+    ],
+  };
+
   const validation = (formData) => {
     const errorsData = {};
-    if (!formData.title) {
-      errorsData.title = "Title is required.";
-    }
-    if (!formData.category) {
-      errorsData.category = "Please select a category.";
-    }
-    if (!formData.amount) {
-      errorsData.amount = "Please enter an Amount.";
-    }
+    Object.entries(formData).forEach(([key, value]) => {
+      validationConfig[key].forEach((rule) => {
+        if (rule.required && !value) {
+          errorsData[key] = rule.message;
+        }
+        if (rule.minLength && value.length < 3) {
+          errorsData[key] = rule.message;
+        }
+        if (rule.typeof && !Number(value)) {
+          errorsData[key] = rule.message;
+        }
+      });
+    });
+
     setErrors(errorsData);
     return errorsData;
   };

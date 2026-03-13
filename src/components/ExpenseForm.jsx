@@ -40,6 +40,7 @@ function ExpenseForm({ setExpenses }) {
       ...prev,
       [name]: value,
     }));
+    setErrors({});
   };
   return (
     <form className="expense-form" onSubmit={handleSubmit}>
@@ -51,6 +52,7 @@ function ExpenseForm({ setExpenses }) {
           value={expense.title}
           onChange={handeChange}
         />
+        <p className="error">{errors.title}</p>
       </div>
       <div className="input-container">
         <label htmlFor="category">Category</label>
@@ -67,6 +69,7 @@ function ExpenseForm({ setExpenses }) {
           <option value="Education">Education</option>
           <option value="Medicine">Medicine</option>
         </select>
+        <p className="error">{errors.category}</p>
       </div>
       <div className="input-container">
         <label htmlFor="amount">Amount</label>
@@ -76,6 +79,7 @@ function ExpenseForm({ setExpenses }) {
           value={expense.amount}
           onChange={handeChange}
         />
+        <p className="error">{errors.amount}</p>
       </div>
       <button className="add-btn">Add</button>
     </form>

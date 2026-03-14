@@ -2,6 +2,9 @@ import { useFilter } from "./hooks/useFilter";
 
 function ExpenseTable({ expenses }) {
   const [filteredData, setQuery] = useFilter(expenses, (data) => data.category);
+
+  const total = filteredData.reduce((acc, curr) => acc + curr.amount, 0);
+
   return (
     <table className="expense-table">
       <thead>
@@ -53,7 +56,7 @@ function ExpenseTable({ expenses }) {
         <tr>
           <th>Total</th>
           <th></th>
-          <th>₹8100</th>
+          <th>₹{total}</th>
         </tr>
       </tbody>
     </table>

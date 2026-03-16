@@ -93,7 +93,14 @@ function ExpenseTable({ expenses, setExpenses, setExpense, setEditRowId }) {
           ))}
           <tr>
             <th>Total</th>
-            <th></th>
+            <th
+              className="clear-sort"
+              onClick={() => {
+                setSortFun(() => () => {});
+              }}
+            >
+              Clear Sort
+            </th>
             <th>₹{total}</th>
           </tr>
         </tbody>

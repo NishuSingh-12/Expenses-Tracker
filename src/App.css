@@ -2,14 +2,18 @@
 
 body {
     font-family:  "Nunito", sans-serif;
-    margin: 0 32px;
+    background-color: #FBF8FC;
+    margin: 0;
 }
 
 main {
     max-width: 900px;
     margin-inline: auto;
 }
-
+.heading{
+    color: #A953AE;
+    text-align: center;
+}
 * {
     box-sizing: border-box;
 }
@@ -21,12 +25,19 @@ main {
 
 .expense-form {
     width: 100%;
+    border: 2px solid #B79EDE;
+    padding: 20px;
+    border-radius: 4px;
 }
 
 .expense-table {
     width: 100%;
     border-collapse: collapse;
     align-self: flex-start;
+    border: 2px solid #B79EDE;
+}
+.total-amount{
+    color: green;
 }
 
 .expense-table select {
@@ -98,6 +109,11 @@ main {
     font-size: 18px;
     font-family: inherit;
     margin-top: 8px;
+    background-color: #FE77A6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
 .context-menu {

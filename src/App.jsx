@@ -14,7 +14,7 @@ function App() {
   const [editRowId, setEditRowId] = useLocalStorage("editRowId", "");
   return (
     <main>
-      <h1>Track Your Expense</h1>
+      <h1 className="heading">Track Your Expense</h1>
       <div className="expense-tracker">
         <ExpenseForm
           setExpenses={setExpenses}

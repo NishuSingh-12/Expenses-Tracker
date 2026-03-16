@@ -130,7 +130,7 @@ function ExpenseTable({ expenses, setExpenses, setExpense, setEditRowId }) {
             >
               Clear Sort
             </th>
-            <th>₹{total}</th>
+            <th className="total-amount">₹{total}</th>
           </tr>
         </tbody>
       </table>

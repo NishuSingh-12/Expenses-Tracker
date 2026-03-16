@@ -18,7 +18,7 @@ function ExpenseForm({
     category: [{ required: true, message: "Please select a category." }],
     amount: [
       { required: true, message: "Please enter an amount." },
-      { typeof: Number, message: "Only numbers allow." },
+      { typeof: Number, message: "Please enter a valid number." },
     ],
   };
 

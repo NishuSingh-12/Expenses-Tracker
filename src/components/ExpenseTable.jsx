@@ -7,7 +7,10 @@ function ExpenseTable({ expenses, setExpenses, setExpense, setEditRowId }) {
   const [menuPosition, setMenuPosition] = useState({});
   const [rowId, setRowId] = useState("");
 
-  const total = filteredData.reduce((acc, curr) => acc + curr.amount, 0);
+  const total = filteredData.reduce(
+    (acc, curr) => acc + parseInt(curr.amount),
+    0,
+  );
 
   return (
     <>

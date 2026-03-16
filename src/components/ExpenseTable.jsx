@@ -11,7 +11,7 @@ function ExpenseTable({ expenses, setExpenses, setExpense, setEditRowId }) {
     (acc, curr) => acc + parseInt(curr.amount),
     0,
   );
-
+console.log("rendring");
   return (
     <>
       <ContextMenu
@@ -23,7 +23,14 @@ function ExpenseTable({ expenses, setExpenses, setExpense, setEditRowId }) {
         expenses={expenses}
         setEditRowId={setEditRowId}
       />
-      <table className="expense-table" onClick={() => setMenuPosition({})}>
+      <table
+        className="expense-table"
+        onClick={() => {
+          if (menuPosition.left) {
+            setMenuPosition({});
+          }
+        }}
+      >
         <thead>
           <tr>
             <th>Title</th>

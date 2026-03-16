@@ -1,16 +1,40 @@
-# React + Vite
+# 💰 Expense Tracker
+A responsive Expense Tracker Web App built with React + Vite that allows users to manage their daily expenses easily.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Users can add, edit, delete, filter, and sort expenses using a clean table interface. The app also stores data in Local Storage, so expenses remain saved even after refreshing the page.
 
-Currently, two official plugins are available:
+## [Netlify link] (https://expensetracapplication.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+➕ Add new expenses
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✏️ Edit expenses using Custom Context Menu
 
-## Expanding the ESLint configuration
+🗑️ Delete expenses using Context Menu
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+💾 Save expenses in Local Storage
+
+🔎 Filter expenses by Category
+
+🔼 Sort expenses by Amount (Ascending)
+
+🔽 Sort expenses by Amount (Descending)
+
+🔤 Sort expenses by Title (Alphabetical Order)
+
+📋 Display all expenses in a table layout
+
+📱 Fully responsive design for desktop and mobile
+
+## 🛠️ Tech Stack
+
+React.js
+
+Vite
+
+JavaScript (ES6)
+
+HTML5
+
+CSS3
